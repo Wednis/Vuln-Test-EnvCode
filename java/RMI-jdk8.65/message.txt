@@ -1,0 +1,2 @@
+在Shell.class所在目录打开一个http服务器
+python3 -m http.server 9999
