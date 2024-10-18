@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传文件</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://api.r10086.com/%E6%A8%B1%E9%81%93%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87api%E6%8E%A5%E5%8F%A3.php?%E5%9B%BE%E7%89%87%E7%B3%BB%E5%88%97=%E5%8A%A8%E6%BC%AB%E7%BB%BC%E5%90%883') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input[type="file"] {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+        }
+        input[type="submit"] {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff1493;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>上传你的 PNG 文件</h2>
+        <form action="check.php" method="post" enctype="multipart/form-data">
+            <label for="file">选择文件：</label>
+            <input type="file" name="file" id="file" onchange="displayFileName()">
+            <input type="submit" name="submit" value="上传">
+        </form>
+        <div class="file-name" id="file-name">
+            <!-- 文件名将显示在这里 -->
+        </div>
+    </div>
+
+    <script>
+        function displayFileName() {
+            const fileInput = document.getElementById('file');
+            const fileNameDiv = document.getElementById('file-name');
+            if (fileInput.files.length > 0) {
+                fileNameDiv.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDiv.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
